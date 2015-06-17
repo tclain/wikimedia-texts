@@ -1,0 +1,43 @@
+//out : ../css/custom.css, compress: true
+@import "bootstrap/bootstrap.less";
+body {}
+
+@font-face {
+    font-family: SourceSansRegular;
+    src: url("../fonts/SourceSansPro-Regular.otf");
+}
+
+@font-face {
+    font-family: SourceSansLight;
+    src: url("../fonts/SourceSansPro-Light.otf");
+}
+
+body {
+    font-family: "SourceSansLight", Helvetica, Arial;
+}
+
+h2,
+h3 {
+    font-family: "SourceSansRegular", helvetica, arial;
+}
+
+.left-sidebar {
+    @media(min-width: @screen-md-min) {
+        border-right: 1px solid @brand-primary;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        .nav-sidebar {
+            width: 100%;
+            left: 0px;
+            bottom: 0px;
+            li {
+                width: 100%;
+                a {
+                    width: 100%
+                }
+            }
+        }
+    }
+}

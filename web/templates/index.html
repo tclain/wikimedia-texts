@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>WebSocket+Tornado+ElasticSearch+AngularJS</title>
+    <link href="static/css/custom.css" rel="stylesheet">
+</head>
+{% raw %}
+
+<body ng-app="WikiAnalysisApp">
+    <div class="container-fluid">
+        <div class="row">
+            <!--<div class="left-sidebar full-height">!-->
+            <div class="col-md-3" ng-controller="WikiNewDataController">
+                <h2>Dernières activités</h2>
+                <ul class="list-group">
+                    <li ng-repeat="activity in activities" class="list-group-item">
+                        <a href="#">{{activity.comment | cut}}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-9" ng-controller="WikiSearchDataController">
+                <h2>Rechercher</h2>
+                <input type="input" class="form-control" ng-model="input" ng-change="search()" />
+                <hr />
+                <h2>Résultats</h2>
+                <table class="table">
+                    <tr ng-repeat="result in results">
+                        <td>{{result._id}}</td> <td>{{result._source.comment}}</td>
+                    </tr>
+                </table>
+            </div>
+            <!--</div> !-->
+        </div>
+
+    </div>
+
+
+    {% endraw %}
+
+    <script src="static/js/vendor/jquery.min.js"></script>
+    <script src="static/js/vendor/bootstrap.min.js"></script>
+
+
+    <script type="text/javascript" src="static/js/vendor/angular.min.js"></script>
+    <script type="text/javascript" src="static/js/vendor/socket.io.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/js/app.js"></script>
+</body>
+
+</html>
